@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>For Esha ❤️</title>
+
+<style>
+body{
+    margin:0;
+    padding:0;
+    text-align:center;
+    font-family:Arial;
+    background:linear-gradient(to right,#ff758c,#ff7eb3);
+    color:white;
+    overflow:hidden;
+}
+
+.container{
+    margin-top:120px;
+}
+
+button{
+    padding:15px 30px;
+    font-size:18px;
+    border:none;
+    border-radius:30px;
+    cursor:pointer;
+    margin:10px;
+    transition:0.3s;
+}
+
+#yesBtn{
+    background:#00ff88;
+}
+
+#noBtn{
+    background:#ff4444;
+    position:fixed;
+}
+
+#message{
+    margin-top:25px;
+    font-size:22px;
+    min-height:40px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Esha ❤️</h1>
+    <h2>Main tumhe bohat pasand karta hoon 💖</h2>
+    <h2>Kya tum meri banogi? 😏</h2>
+
+    <button id="yesBtn" onclick="sayYes()">Yes 💍</button>
+    <button id="noBtn">No 😢</button>
+
+    <div id="message"></div>
+</div>
+
+<script>
+
+let noBtn = document.getElementById("noBtn");
+let yesBtn = document.getElementById("yesBtn");
+let message = document.getElementById("message");
+let noCount = 0;
+
+// No button bhagega
+noBtn.addEventListener("mouseover", function(){
+    let x = Math.random() * (window.innerWidth - 100);
+    let y = Math.random() * (window.innerHeight - 50);
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+});
+
+// Agar somehow click ho jaye
+noBtn.addEventListener("click", function(){
+    noCount++;
+
+    let texts = [
+        "Arey itni jaldi no? 😭",
+        "Soch lo thora sa ❤️",
+        "Main serious hoon 😌",
+        "Dil toot jayega mera 💔",
+        "Ab to Yes hi kar do 😏"
+    ];
+
+    if(noCount <= texts.length){
+        message.innerHTML = texts[noCount - 1];
+        yesBtn.style.transform = "scale(" + (1 + noCount*0.2) + ")";
+    } else {
+        message.innerHTML = "Ab No ka option khatam 😎";
+        noBtn.style.display = "none";
+    }
+});
+
+// Yes button
+function sayYes(){
+    document.body.innerHTML = `
+        <div style="margin-top:150px;text-align:center;">
+            <h1>Esha ❤️ Asad</h1>
+            <h2>Finallyyyy 💍✨</h2>
+            <h2>Ab kahani shuru 🌹</h2>
+        </div>
+    `;
+    document.body.style.background="linear-gradient(to right,#00c9ff,#92fe9d)";
+}
+
+</script>
+
+</body>
+</html>
